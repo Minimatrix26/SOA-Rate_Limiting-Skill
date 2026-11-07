@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ratelimit-demo
+server:
+  port: 8080

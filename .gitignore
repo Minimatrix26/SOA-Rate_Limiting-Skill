@@ -1,1 +1,7 @@
 .idea
+target/
+.env
+.env.*
+!.env.example
+.vscode/
+*.iml
