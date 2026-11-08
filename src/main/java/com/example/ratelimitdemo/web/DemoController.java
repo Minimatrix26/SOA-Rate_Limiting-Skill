@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import java.util.Map;
 import java.util.UUID;
+import com.example.ratelimitdemo.ratelimit.RateLimited;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,7 @@ public class DemoController {
     }
 
     @PostMapping("/auth/login")
+    @RateLimited(policy = "login")
     @Operation(summary = "Log in with the demo credentials")
     public Map<String, String> login(@Valid @RequestBody LoginRequest request) {
         if (!DEMO_EMAIL.equals(request.email()) || !DEMO_PASSWORD.equals(request.password())) {
